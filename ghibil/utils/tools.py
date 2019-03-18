@@ -17,7 +17,7 @@ def fetch_movies_and_actors():
         )
         for item in requests.get("https://ghibliapi.herokuapp.com/films").json()
     ]
-    return results
+    return results[0][0]
 
 
 def headers_to_fs():

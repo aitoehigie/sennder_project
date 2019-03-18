@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
-
 {% block content %}
 <h1>Ghibil Movies API</h1>
-{{ films_json }}
+
+{% for film in films_json %}
+{% for item in film %}
+{% for i in item %}
+{{i}}
+{% endfor %}
+{% endfor %}
+{% endfor %}
 {% endblock content %}
