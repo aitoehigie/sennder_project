@@ -19,7 +19,7 @@ This documentation details the process involved in solving the Sennder Python De
 This project contains software written in Python as a solution to the Python Developer test by the candidate:
 Name: Ehigie Pascal Aito
 Email: <aitoehigie@gmail.com>
-Date: 03/11/2019
+Date: 03/15/2019
 
 ### Setup & Installation Instruction
 
@@ -34,9 +34,7 @@ Navigate to <http://localhost:5000/films> to start interacting with the API endp
 
 ## Tech stack 
 - Flask Microframework
-- Gunicorn (a battle test WSGI server that runs the API [api.py]): this is a production ready WSGI server and is better than anything I could have written myself.
-- Ratelimiting library to prevent abuse from consummers of the API. This limits requests to 5 requests/15 minutes.
-- WSGI CORS Middleware library: I incorporated this into my REST API framework to enable Cross Site Origin Requests. As CORS is the standard way to do cross domain AJAX calls (for browsers that support it).
+- Gunicorn (a battle test WSGI server that runs the API [app.py]): this is a production ready WSGI server.
 
 
 #### Caching
@@ -64,7 +62,14 @@ Supported REST methods are:
  - Add async support.
  - Page styling.
  - Task Queue (Celer.y and Redis)
- - 
+
+### How It Works
+ - The films endpoint accepts only a GET request from users. It then sends a HEAD 
+request to the GHIBIL API endpoint and checks the ETag value against the saved value
+it has on file. If its the same, it returns a locally saved version of the JSON output to the caller.
+If its not, it then makes a GET call to the GHIBIL HTTP endpoint, saves the response and simultaneously returns the result to the caller.
+
+ 
 License
 ----
 
