@@ -62,6 +62,7 @@ Supported REST methods are:
  - Add async support.
  - Page styling.
  - Task Queue (Celer.y and Redis)
+ - Docker and Docker-compose support.
 
 ### How It Works
  - The films endpoint accepts only a GET request from users. It then sends a HEAD 

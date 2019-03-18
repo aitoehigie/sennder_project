@@ -2,7 +2,7 @@
 
 from functools import lru_cache
 from flask import Flask, jsonify, render_template
-from utils.tools import fetch_movies_and_actors, headers_to_fs
+from .utils.tools import fetch_movies_and_actors, headers_to_fs
 import requests
 
 api = Flask(__name__)
